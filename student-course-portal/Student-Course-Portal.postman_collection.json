@@ -1,0 +1,389 @@
+{
+	"info": {
+		"_postman_id": "student-course-portal-2025",
+		"name": "Student Course Portal - Microservices",
+		"description": "Complete API collection for testing all 5 microservices of Student Course Portal system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Student Service (8081)",
+			"item": [
+				{
+					"name": "Get All Students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/students",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["students"]
+						}
+					}
+				},
+				{
+					"name": "Create Student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Alice Johnson\",\n  \"email\": \"alice.johnson@sjp.ac.lk\",\n  \"department\": \"ICT\",\n  \"phone\": \"0771234567\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/students",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["students"]
+						}
+					}
+				},
+				{
+					"name": "Get Student by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/students/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["students", "1"]
+						}
+					}
+				},
+				{
+					"name": "Update Student",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Alice Johnson Updated\",\n  \"email\": \"alice.updated@sjp.ac.lk\",\n  \"department\": \"Computer Science\",\n  \"phone\": \"0779999999\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/students/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["students", "1"]
+						}
+					}
+				},
+				{
+					"name": "Delete Student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/students/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["students", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Course Service (8082)",
+			"item": [
+				{
+					"name": "Get All Courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/courses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8082",
+							"path": ["courses"]
+						}
+					}
+				},
+				{
+					"name": "Create Course",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"courseCode\": \"ITS4243\",\n  \"courseName\": \"Micro Services and Cloud Computing\",\n  \"description\": \"Advanced course on microservices architecture and cloud technologies\",\n  \"credits\": 3,\n  \"instructor\": \"Dr. Smith\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8082/courses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8082",
+							"path": ["courses"]
+						}
+					}
+				},
+				{
+					"name": "Get Course by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/courses/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8082",
+							"path": ["courses", "1"]
+						}
+					}
+				},
+				{
+					"name": "Update Course",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"courseCode\": \"ITS4243\",\n  \"courseName\": \"Microservices and Cloud Computing - Updated\",\n  \"description\": \"Updated course description\",\n  \"credits\": 4,\n  \"instructor\": \"Dr. Jane Smith\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8082/courses/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8082",
+							"path": ["courses", "1"]
+						}
+					}
+				},
+				{
+					"name": "Delete Course",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/courses/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8082",
+							"path": ["courses", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Enrollment Service (8083)",
+			"item": [
+				{
+					"name": "Enroll Student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"studentId\": 1,\n  \"courseId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8083/enroll",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8083",
+							"path": ["enroll"]
+						},
+						"description": "Validates student and course IDs, creates enrollment, and sends notification"
+					}
+				},
+				{
+					"name": "Get Enrollments by Student ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/enrollments/student/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8083",
+							"path": ["enrollments", "student", "1"]
+						}
+					}
+				},
+				{
+					"name": "Get All Enrollments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/enrollments",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8083",
+							"path": ["enrollments"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Result Service (8084)",
+			"item": [
+				{
+					"name": "Get All Results",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/results",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8084",
+							"path": ["results"]
+						}
+					}
+				},
+				{
+					"name": "Create Result",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"studentId\": 1,\n  \"courseId\": 1,\n  \"grade\": \"A\",\n  \"marks\": 88.5\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8084/results",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8084",
+							"path": ["results"]
+						}
+					}
+				},
+				{
+					"name": "Get Results by Student ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/results/student/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8084",
+							"path": ["results", "student", "1"]
+						}
+					}
+				},
+				{
+					"name": "Get Result by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/results/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8084",
+							"path": ["results", "1"]
+						}
+					}
+				},
+				{
+					"name": "Update Result",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"grade\": \"A+\",\n  \"marks\": 95.0\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8084/results/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8084",
+							"path": ["results", "1"]
+						}
+					}
+				},
+				{
+					"name": "Delete Result",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/results/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8084",
+							"path": ["results", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Notification Service (8085)",
+			"item": [
+				{
+					"name": "Send Enrollment Notification",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"studentId\": 1,\n  \"courseId\": 1,\n  \"message\": \"Manual enrollment notification test\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8085/notify/enrollment",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8085",
+							"path": ["notify", "enrollment"]
+						},
+						"description": "Sends notification - check the console output of Notification Service"
+					}
+				}
+			]
+		}
+	]
+}
