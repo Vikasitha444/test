@@ -1,0 +1,472 @@
+{
+	"info": {
+		"_postman_id": "smart-travel-platform",
+		"name": "Smart Travel Platform API Collection",
+		"description": "API Collection for Smart Travel Booking Platform - Inter-Service Communication Using REST API, Feign Client, and WebClient",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Service",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/users",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["api", "users"]
+						}
+					}
+				},
+				{
+					"name": "Get User By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/users/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["api", "users", "1"]
+						}
+					}
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test User\",\n    \"email\": \"test@example.com\",\n    \"phone\": \"1234567890\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/users",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["api", "users"]
+						}
+					}
+				},
+				{
+					"name": "Validate User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/users/1/validate",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8081",
+							"path": ["api", "users", "1", "validate"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Flight Service",
+			"item": [
+				{
+					"name": "Get All Flights",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/flights",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8082",
+							"path": ["api", "flights"]
+						}
+					}
+				},
+				{
+					"name": "Get Flight By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/flights/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8082",
+							"path": ["api", "flights", "1"]
+						}
+					}
+				},
+				{
+					"name": "Create Flight",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"flightNumber\": \"FL004\",\n    \"origin\": \"Colombo\",\n    \"destination\": \"London\",\n    \"price\": 500.00,\n    \"availableSeats\": 100,\n    \"available\": true\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/flights",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8082",
+							"path": ["api", "flights"]
+						}
+					}
+				},
+				{
+					"name": "Check Flight Availability",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/flights/1/availability",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8082",
+							"path": ["api", "flights", "1", "availability"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Hotel Service",
+			"item": [
+				{
+					"name": "Get All Hotels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/hotels",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8083",
+							"path": ["api", "hotels"]
+						}
+					}
+				},
+				{
+					"name": "Get Hotel By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/hotels/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8083",
+							"path": ["api", "hotels", "1"]
+						}
+					}
+				},
+				{
+					"name": "Create Hotel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Luxury Resort\",\n    \"location\": \"Bali\",\n    \"pricePerNight\": 200.00,\n    \"availableRooms\": 15,\n    \"available\": true\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/hotels",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8083",
+							"path": ["api", "hotels"]
+						}
+					}
+				},
+				{
+					"name": "Check Hotel Availability",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/hotels/1/availability",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8083",
+							"path": ["api", "hotels", "1", "availability"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Booking Service",
+			"item": [
+				{
+					"name": "Create Booking",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": 1,\n    \"flightId\": 1,\n    \"hotelId\": 1,\n    \"travelDate\": \"2025-01-10\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/bookings",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "bookings"]
+						}
+					}
+				},
+				{
+					"name": "Get All Bookings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/bookings",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "bookings"]
+						}
+					}
+				},
+				{
+					"name": "Get Booking By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/bookings/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "bookings", "1"]
+						}
+					}
+				},
+				{
+					"name": "Get Bookings By User ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/bookings/user/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "bookings", "user", "1"]
+						}
+					}
+				},
+				{
+					"name": "Confirm Booking",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/bookings/1/confirm",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "bookings", "1", "confirm"]
+						}
+					}
+				},
+				{
+					"name": "Cancel Booking",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/bookings/1/cancel",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "bookings", "1", "cancel"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Payment Service",
+			"item": [
+				{
+					"name": "Process Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bookingId\": 1,\n    \"amount\": 400.00,\n    \"paymentMethod\": \"CREDIT_CARD\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8084/api/payments",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8084",
+							"path": ["api", "payments"]
+						}
+					}
+				},
+				{
+					"name": "Get All Payments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/api/payments",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8084",
+							"path": ["api", "payments"]
+						}
+					}
+				},
+				{
+					"name": "Get Payment By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/api/payments/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8084",
+							"path": ["api", "payments", "1"]
+						}
+					}
+				},
+				{
+					"name": "Get Payment By Booking ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/api/payments/booking/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8084",
+							"path": ["api", "payments", "booking", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Notification Service",
+			"item": [
+				{
+					"name": "Send Notification",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": 1,\n    \"bookingId\": 1,\n    \"type\": \"BOOKING_REMINDER\",\n    \"message\": \"Your travel date is approaching!\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/notifications",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8085",
+							"path": ["api", "notifications"]
+						}
+					}
+				},
+				{
+					"name": "Get All Notifications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/notifications",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8085",
+							"path": ["api", "notifications"]
+						}
+					}
+				},
+				{
+					"name": "Get Notification By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/notifications/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8085",
+							"path": ["api", "notifications", "1"]
+						}
+					}
+				},
+				{
+					"name": "Get Notifications By User ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/notifications/user/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8085",
+							"path": ["api", "notifications", "user", "1"]
+						}
+					}
+				},
+				{
+					"name": "Get Notifications By Booking ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/notifications/booking/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8085",
+							"path": ["api", "notifications", "booking", "1"]
+						}
+					}
+				}
+			]
+		}
+	]
+}
