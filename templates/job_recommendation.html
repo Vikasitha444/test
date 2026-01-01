@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Recommendations - CV Validator Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg, #f8fafc 0%, #e0e7ff 100%);
+            color: #1e293b;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: #1a1a2e;
+            padding: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00f5a0 0%, #00d9f5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 20px 0;
+        }
+
+        .logo-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn-getstarted {
+            padding: 10px 24px;
+            background: linear-gradient(135deg, #00f5a0 0%, #00d9f5 100%);
+            color: #1a1a2e;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-getstarted:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,245,160,0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 16px;
+        }
+
+        .page-header .highlight {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .coming-soon {
+            background: white;
+            border-radius: 24px;
+            padding: 80px 48px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .coming-soon-icon {
+            font-size: 80px;
+            margin-bottom: 24px;
+        }
+
+        .coming-soon h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 16px;
+        }
+
+        .coming-soon p {
+            font-size: 16px;
+            color: #64748b;
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99,102,241,0.3);
+        }
+
+        .features-preview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .feature-card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .site-footer {
+            background-color: #1e293b;
+            color: #f1f5f9;
+            padding: 40px 20px 20px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1200px;
+            margin: auto;
+            justify-content: space-between;
+        }
+
+        .footer-about, .footer-links, .footer-contact {
+            flex: 1 1 250px;
+        }
+
+        .footer-about h3, .footer-links h4, .footer-contact h4 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+        }
+
+        .footer-links ul li a:hover {
+            color: #6366f1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 32px;
+            }
+
+            .features-preview {
+                grid-template-columns: 1fr;
+            }
+
+            .coming-soon {
+                padding: 48px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo-link">
+                <div class="logo">CV Validator Pro</div>
+            </a>
+            <div class="nav-buttons">
+                <a href="/" class="btn-getstarted">Validate CV</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Job <span class="highlight">Recommendations</span></h1>
+            <p>Get personalized job recommendations based on your CV analysis and skills matching.</p>
+        </div>
+
+        <div class="coming-soon">
+            <div class="coming-soon-icon">Coming Soon</div>
+            <h2>This Feature is Coming Soon!</h2>
+            <p>We're working on an AI-powered job recommendation system that will match your skills and experience with the best opportunities in the Sri Lankan IT market.</p>
+            <a href="/" class="back-btn">Go Back to CV Validator</a>
+        </div>
+
+        <div class="features-preview">
+            <div class="feature-card">
+                <div class="feature-card-icon">1</div>
+                <h3>Skill Matching</h3>
+                <p>AI analyzes your CV to match your skills with job requirements.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon">2</div>
+                <h3>Company Insights</h3>
+                <p>Get insights about top IT companies hiring in Sri Lanka.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon">3</div>
+                <h3>Salary Estimates</h3>
+                <p>View estimated salary ranges for matched positions.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>CV Validator Pro</h3>
+                <p>AI-powered CV analysis tailored for the Sri Lankan IT market.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Upload CV</a></li>
+                    <li><a href="/job-recommendations">Job Recommendations</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>Email: support@cvvalidatorpro.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>2025 CV Validator Pro. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
